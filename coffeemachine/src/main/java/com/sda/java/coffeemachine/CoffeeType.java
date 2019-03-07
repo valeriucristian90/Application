@@ -2,20 +2,22 @@ package com.sda.java.coffeemachine;
 
 public enum CoffeeType {
 
-    EXPRESSO(5,50,0,0),
-    FILTER_COFFEE(10,100,2,10),
-    LATTE(10,100,4,50);
+    ESPRESSO (5, 50, 0, 0),
+    FILTERCOFFEE (5, 50, 5, 0),
+    LATTE (5, 50, 5, 10);
 
-    private final int coffeeRequired;
-    private final int waterRequired;
-    private final int sugarRequired;
-    private final int milkRequired;
+    final int coffeeRequired;
+    final int waterRequired;
+    final int sugarRequired;
+    final int milkRequired;
 
-    CoffeeType(int coffeeRequired, int waterRequired, int sugarRequired, int milkRequired) {
-        this.coffeeRequired = coffeeRequired;
-        this.waterRequired = waterRequired;
-        this.sugarRequired = sugarRequired;
-        this.milkRequired = milkRequired;
+
+    CoffeeType (int coffee, int water, int sugar, int milk) {
+
+        this.coffeeRequired = coffee;
+        this.waterRequired = water;
+        this.sugarRequired = sugar;
+        this.milkRequired = milk;
     }
 
     public int getCoffeeRequired() {
@@ -33,7 +35,5 @@ public enum CoffeeType {
     public int getMilkRequired() {
         return milkRequired;
     }
-
-
 }
 

@@ -1,32 +1,32 @@
 package com.sda.java.coffeemachine.menu;
 
+import com.sda.java.coffeemachine.menu.Ingredient;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Stock {
 
-    private int coffeeStock ;
-    private int waterStock ;
-    private int sugarStock ;
-    private int milkStock;
+    private Map<Ingredient, Integer> ingredients = new HashMap<Ingredient, Integer>();
 
-    public Stock(int coffeeStock, int waterStock, int sugarStock, int milkStock) {
-        this.coffeeStock = coffeeStock;
-        this.waterStock = waterStock;
-        this.sugarStock = sugarStock;
-        this.milkStock = milkStock;
+    public Stock (){
+        for (Ingredient eachIngredient : Ingredient.values()) {
+            ingredients.put(eachIngredient, 0);
+        }
     }
 
-    public int getCoffeeStock() {
-        return coffeeStock;
+    public int getIngredient (Ingredient ingredient) throws Exception {
+        if(!ingredients.containsKey(ingredient)) {
+            throw new Exception("Ingredient not found" + ingredient);
+        }
+        return ingredients.get(ingredient);
     }
 
-    public int getWaterStock() {
-        return waterStock;
+    public void addToStock (String ingredient, int quantity) {
+        if(!ingredients.co)
     }
 
-    public int getSugarStock() {
-        return sugarStock;
-    }
-
-    public int getMilkStock() {
-        return milkStock;
+    public void removeFromStock (int quantity) {
+        //coffeeStock - quantity;
     }
 }

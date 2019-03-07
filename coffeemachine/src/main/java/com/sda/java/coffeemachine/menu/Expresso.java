@@ -2,10 +2,15 @@ package com.sda.java.coffeemachine.menu;
 
 import com.sda.java.coffeemachine.CoffeeType;
 
-public class Expresso extends Coffee {
+class Espresso extends Coffee {
 
+    public static final CoffeeType ESPRESSO = CoffeeType.ESPRESSO;
 
-    public Expresso() {
-        super(CoffeeType.EXPRESSO);
+    public Espresso() {
+        super(ESPRESSO);
+    }
+
+    protected String getCoffeeName() {
+        return ESPRESSO.toString();
     }
 }
