@@ -1,5 +1,6 @@
 package com.sda.java.coffeemachine.menu;
 
+import com.sda.java.coffeemachine.IngredientNotFoundError;
 import com.sda.java.coffeemachine.menu.Ingredient;
 
 import java.util.HashMap;
@@ -15,18 +16,26 @@ public class Stock {
         }
     }
 
-    public int getIngredient (Ingredient ingredient) throws Exception {
+    public int getIngredient (Ingredient ingredient) throws IngredientNotFoundError {
         if(!ingredients.containsKey(ingredient)) {
-            throw new Exception("Ingredient not found" + ingredient);
+            throw new IngredientNotFoundError (ingredient);
         }
         return ingredients.get(ingredient);
     }
 
-    public void addToStock (String ingredient, int quantity) {
-        if(!ingredients.co)
+    public void addToStock (Ingredient ingredient, int quantity) throws IngredientNotFoundError {
+        if(!ingredients.containsKey(ingredient)) {
+            throw new IngredientNotFoundError(ingredient);
+        }
+        Integer curentQuantity = ingredients.get(ingredient);
+        ingredients.put(ingredient,quantity+curentQuantity);
     }
 
-    public void removeFromStock (int quantity) {
-        //coffeeStock - quantity;
+    public void removeFromStock (Ingredient ingredient ,int quantity){
+        if(!ingredients.containsKey(ingredient)) {
+            throw new IngredientNotFoundError(ingredient);
+        }
+        Integer curentQuantity = ingredients.get(ingredient);
+        ingredients.put(ingredient,curentQuantity-quantity);
     }
 }
